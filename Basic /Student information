@@ -1,0 +1,74 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Base Class
+class StudentInformation
+{
+protected:
+    string name;
+    string classes;
+    int rollno;
+
+public:
+    // Function to input student basic information
+    void studentInfo()
+    {
+        cout << "Enter the name of the student: ";
+        cin >> name;
+        
+        cout << "Enter the class of the student: ";
+        cin >> classes;
+
+        cout << "Enter the roll number of the student: ";
+        cin >> rollno;
+    }
+};
+
+// Derived Class
+class Student : public StudentInformation
+{
+private:
+    int maths, physics, chemistry;
+
+public:
+    // Function to input marks
+    void student1()
+    {
+        studentInfo();
+
+        cout << "Enter the marks in Maths: ";
+        cin >> maths;
+
+        cout << "Enter the marks in Physics: ";
+        cin >> physics;
+
+        cout << "Enter the marks in Chemistry: ";
+        cin >> chemistry;
+    }
+
+    // Function to display details
+    void display1()
+    {
+        float average = (maths + physics + chemistry) / 3.0;
+
+        cout << "\n----- Student Information -----" << endl;
+        cout << "Name: " << name << endl;
+        cout << "Class: " << classes << endl;
+        cout << "Roll Number: " << rollno << endl;
+        cout << "Maths Marks: " << maths << endl;
+        cout << "Physics Marks: " << physics << endl;
+        cout << "Chemistry Marks: " << chemistry << endl;
+        cout << "Average Marks: " << average << endl;
+    }
+};
+
+int main()
+{
+    Student s;
+
+    s.student1();
+    s.display1();
+
+    return 0;
+}
